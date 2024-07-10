@@ -37,4 +37,4 @@ COPY . .
 RUN tesseract --version
 
 # Set the command to run when the container starts
-CMD ["python3", "-m", "streamlit", "run", "streamlit.py", "--server.port", "8000"]
+CMD ["python3", "-m", "streamlit", "run", "app.py", "--server.port", "8000"]

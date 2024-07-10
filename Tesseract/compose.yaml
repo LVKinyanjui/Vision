@@ -2,6 +2,8 @@ services:
   app:
     build: .
     container_name: tesseract-demo
-    command: tesseract --version
+    ports:
+      -8000:8000
+    command: python3 -m streamlit run app.py --server.port 8000
     volumes:
       - .:/app
