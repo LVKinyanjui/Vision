@@ -25,7 +25,13 @@ RUN apt-get update && apt-get install -y \
     # && apt-get clean \
     # && rm -rf /var/lib/apt/lists/*
 
+# Copy the requirements file into the container
+COPY requirements.txt .
+
 RUN pip3 install -r requirements.txt
+
+# Copy the rest of your application's code
+COPY . .
 
 # Verify Tesseract installation
 RUN tesseract --version
