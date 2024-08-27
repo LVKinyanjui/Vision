@@ -11,12 +11,15 @@ file = st.file_uploader("Choose a file", type=['png', 'jpg'])
 @st.cache_data
 def transcribe(file):
     image = Image.open(file)
-    return pytesseract.image_to_string(image)
+    ocr_text =  pytesseract.image_to_string(image)
+    return ocr_text, image
 
 if file is not None:
     st.write("Image uploaded succesfully!")
 
+    ocr_text, image = transcribe(file)
+
+    st.image(image)
     st.write("### Recognized Text")
-    ocr_text = transcribe(file)
     ocr_text
 
