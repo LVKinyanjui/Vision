@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y \
 # Copy the requirements file into the container
 COPY requirements.txt .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 # Copy the rest of your application's code
 COPY . .
